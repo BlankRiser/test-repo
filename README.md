@@ -4,5 +4,4 @@ testing github webhooks
 - test 2
 - test 3
 - test 4
-- TEST 5
-- Test 6
+- Test 5
