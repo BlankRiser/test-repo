@@ -6,7 +6,7 @@
 
 [Resource 4](https://realpython.com/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/)
 
-https://towardsdatascience.com/deploy-a-flask-app-on-heroku-and-connect-it-to-a-jawsdb-mysql-database-10e762bc9160
+[Resource 5](https://towardsdatascience.com/deploy-a-flask-app-on-heroku-and-connect-it-to-a-jawsdb-mysql-database-10e762bc9160)
 
 
 ```
