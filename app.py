@@ -57,7 +57,7 @@ def retrieveDataParam(path):
 
     # body = request.json 
     # json can be easier to parse later but make sure request.headers['Content-type'] is 'application/json'
-    body = request.data
+    body = request.json
     body = str(body)
 
     webhook_data = Webhook_data(path =url,method = method,headers = headers,body = body)
