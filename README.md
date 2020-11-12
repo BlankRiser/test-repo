@@ -28,7 +28,7 @@ path TEXT,
 method TEXT,
 headers TEXT,
 body TEXT
-;
+);
 ```
 The output would be `CREATE TABLE` if there are no issues
 You can view the contents of the table using:
