@@ -10,7 +10,8 @@ https://towardsdatascience.com/deploy-a-flask-app-on-heroku-and-connect-it-to-a-
 
 
 ```
-web: gunicorn app:app 
+web: gunicorn app:app
+web gunicorn app:app --preload -b 0.0.0.0:5000
 ```
 
 ## Setting up data base in heroku-postgressql
