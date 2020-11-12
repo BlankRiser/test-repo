@@ -2,7 +2,7 @@
 
 [Resource 2](https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/)
 
-https://hackersandslackers.com/flask-sqlalchemy-database-models/
+[Resource 3](https://hackersandslackers.com/flask-sqlalchemy-database-models/)
 
 https://realpython.com/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/
 
