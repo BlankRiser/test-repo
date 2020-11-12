@@ -1,0 +1,2 @@
+deactivate
+nix-shell --pure --run zsh
