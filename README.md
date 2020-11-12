@@ -37,30 +37,35 @@ ngork http 5000
     - Add webhook
 - Doing any activity in Github would generate a `data.json`
 
-## Setting up database
 
-1. Install PostgreSQL
-```
-sudo apt-get install postgresql postgresql-contrib
-```
-2. Create a superuser for PostgreSQL
-```
-sudo -u postgres createuser --superuser <name_of_user>
-```
-```
-sudo -u postgres createuser --superuser ram
-```
-3. Create a database using created user account
-```
-sudo -u <name_of_user> createdb <name_of_database>
-```
-```
-sudo -u ram createdb github_data
-```
-We can access created database with created user by,
-```psql -U <name_of_user> -d <name_of_database>```
+## Setting up data base in heroku-postgressql
 
-```psql -U ram -d github_data```
+Connect our system with heroku-postgresql database
+```
+psql <DATABASE_URI provided by heroku-postgresql>
+```
+At first we can see that there's no TABLE in our database `\dt`, so we create a table from the model we made but in postgrsel format
 
-```\conninfo```
-this will display the database you are connected to as well as the user logged on
+```
+CREATE TABLE github_webhook_data(
+id SERIAL PRIMARY KEY,
+path TEXT,
+method TEXT,
+headers TEXT,
+body TEXT
+;
+```
+The output would be `CREATE TABLE` if there are no issues
+You can view the contents of the table using:
+```
+\d github_webhook_data
+```
+You can also view the data in the TABLE github_webhook_data by creating a dataclip
+```sql
+SELECT * FROM TABLE github_webhook_data
+```
+
+
+## Setting up oauth with Github
+
+https://github.com/settings/applications/new
