@@ -9,6 +9,10 @@
 https://towardsdatascience.com/deploy-a-flask-app-on-heroku-and-connect-it-to-a-jawsdb-mysql-database-10e762bc9160
 
 
+```
+web: gunicorn app:app 
+```
+
 ## Setting up data base in heroku-postgressql
 
 Connect our system with heroku-postgresql database
@@ -17,7 +21,7 @@ psql <DATABASE_URI provided by heroku-postgresql>
 ```
 At first we can see that there's no TABLE in our database `\dt`, so we create a table from the model we made but in postgrsel format
 
-```
+```SQL
 CREATE TABLE github_webhook_data(
 id SERIAL PRIMARY KEY,
 path TEXT,
