@@ -8,7 +8,7 @@
 
 [Resource 5](https://towardsdatascience.com/deploy-a-flask-app-on-heroku-and-connect-it-to-a-jawsdb-mysql-database-10e762bc9160)
 
-
+[resource 6]()
 ```
 web: gunicorn app:app
 web gunicorn app:app --preload -b 0.0.0.0:5000
