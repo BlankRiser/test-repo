@@ -1,6 +1,6 @@
 [Resource 1](https://medium.com/@dushan14/create-a-web-application-with-python-flask-postgresql-and-deploy-on-heroku-243d548335cc)
 
-https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/
+[Resource 2](https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/)
 
 https://hackersandslackers.com/flask-sqlalchemy-database-models/
 
