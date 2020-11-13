@@ -1,6 +1,6 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
-from models import *
+
 
 
 from flask import Flask, request, json
@@ -10,6 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI']='postgres://mdbtssfxfrfmbt:85e19ba21e968ac
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+from models import *
 
 @app.route('/', methods=['GET', 'POST', 'PUT','HEAD','DELETE'])
 def retrieveData():
