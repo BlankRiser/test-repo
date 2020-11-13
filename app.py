@@ -15,17 +15,9 @@ app.config.from_object(os.environ['APP_SETTINGS'])
 
 # any method
 # any URL
-# @app.route('/')
-@app.route('/<path:path>', methods=['GET', 'POST', 'PUT','HEAD','DELETE']) 
-def api_gh_msg(path):
-    """
-    Flask lets you get all the methods only when mentioned explicitly 
-    or by the default would be GET method
-    WebHook connector that get gets the details which GitHub posts.
-    (Still working on it)
-    Returns:
-        dictionary: JSON that is sent to the above route by GitHub to subscribed events.
-    """
+@app.route('/')
+def received():
+
     print(request.method)
     headers = request.headers
     # parameters = request.args #returns ImmutableMultiDict([])
@@ -37,14 +29,35 @@ def api_gh_msg(path):
     print("Url: ", url)
     print("\nheaders: ", headers)
     
-    # body = request.json 
-    # json can be easier to parse later but make sure request.headers['Content-type'] is 'application/json'
-    body = request.data 
+    body = request.json
+    body = str(body) 
     GithubData.objects.create(path=url, method=method, headers=headers, body=body)
-
+    
     return "ok"
 
 
+@app.route('/<path:path>', methods=['GET', 'POST', 'PUT','HEAD','DELETE']) 
+def receivedParams(path):
+
+    print(request.method)
+    headers = request.headers
+
+    body = request.json
+    body = str(body)
+
+    method =request.method
+    url = request.url
+
+    print("Url: ", url)
+    print("\nheaders: ", headers)
+    
+    # body = request.json 
+    # json can be easier to parse later but make sure request.headers['Content-type'] is 'application/json'
+    body = request.json
+    body = str(body) 
+    GithubData.objects.create(path=url, method=method, headers=headers, body=body)
+
+    return "ok"
 
     # if request.headers['Content-type'] == 'application/json':
     #    with open('data.json', 'w', encoding='utf-8') as f:
