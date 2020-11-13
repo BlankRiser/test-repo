@@ -13,9 +13,9 @@ Cargo.lock
 __pycache__/
 env/
 venv/
-target-nix/
-peer/
-migrations/
+# target-nix/
+# peer/
+# migrations/
 .cargo/
 realm/
 
