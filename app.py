@@ -27,11 +27,15 @@ def received():
 
     print(request.method)
     headers = request.headers
+    headers = str(headers)
 
     body = request.json
     body = str(body)
+
     method =request.method
+
     url = request.url
+    
     print("Url: ", url)
     print("\nheaders: ", headers)
     
@@ -52,6 +56,7 @@ def receivedParams(path):
 
     print(request.method)
     headers = request.headers
+    headers = str(headers)
 
     body = request.json
     body = str(body)
