@@ -22,3 +22,6 @@ ipython
 django-extensions
 gsub==0.1.5
 click==7
+Flask_SQLAlchemy==2.4.4
+gunicorn==19.9.0
+psycopg2
