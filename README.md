@@ -1,8 +1,6 @@
 # GitHub Webhook using Flask
 (In Development)
 
-
-
 # References
 
 [Webhooks](https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/about-webhooks)
@@ -60,7 +58,11 @@ sudo -u ram createdb github_data
 We can access created database with created user by,
 ```psql -U <name_of_user> -d <name_of_database>```
 
-```psql -U ram -d github_data```
+```
+psql -U ram -d github_data
+```
 
-```\conninfo```
 this will display the database you are connected to as well as the user logged on
+```
+\conninfo
+```
