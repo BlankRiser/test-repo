@@ -1,46 +1,39 @@
 # GitHub Webhook using Flask
 (In Development)
 
-
-
-# References
-
-[Webhooks](https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/about-webhooks)
-
-[Connecting Flask with PostgresSQL](https://medium.com/@dushan14/create-a-web-application-with-python-flask-postgresql-and-deploy-on-heroku-243d548335cc)
+This repo is for testing purposes only
+The main repo is [github-webhook-store](https://github.com/fifthtry/github-webhook-store)
 
 ## Setup
 
--  Install all the dependencies after activating your python environment
+1. Install all the dependencies after activating your python environment
 ```
 source venv/bin/activate
-pip install flask
+pip install flask Flask==1.1.2 Flask_SQLAlchemy==2.4.4 gunicorn==19.9.0 psycopg2
 ```
 
-- Run app.py
+2. Run app.py
 ```
-python app.py
+python3 app.py
 ```
-- The output from ngork would be running on [http://127.0.0.1:5000/](http://127.0.0.1:5000/ )
-- Run ngork on port 5000
-    -- You can download ngrok, extract it and add it in your $PATH before executing the script below
+
+3. Run [ngork](https://ngrok.com/download) on the port flask opens development server, for me it is http://127.0.0.1:5000/](http://127.0.0.1:5000/ ), so port 5000
+    - You can download ngrok, extract it and add it to your `$PATH` before executing ngrok on your development server.
     ```
     sudo cp ngrok /usr/local/bin
+    ngork http 5000
     ```
-```
-ngork http 5000
-```
-- Adding webhook to Github
-    - Go to `settings` -> `Webhooks` -> Click `Add webhook`
-    - Paste the ngork url as the <strong>Payoad URL</strong> and choose `application/json` as content type. 
+4. Adding webhook to a Github repository
+    - Go to **settings** -> **Webhooks** -> Click **Add webhook**
+    - Paste the ngork url as the ***Payoad URL*** and choose `application/json` as content type. 
     - Let the trigger be `send me everything`
     - Add webhook
-- Doing any activity in Github would generate a `data.json`
+- Now, doing any activity- from pushing, to pull request GitHub would post data to our payload url, which will then be stored in `Heroku Postgres` 
 
 
-## Setting up our database using heroku-postgressql
+## Setting up Heroku-Postgres in Heroku
 
-1. Create an app on heroku and in `Resources` tab and search for `Heroku Postgres` and add it to our app
+1. Create an app in heroku and go to `Resources` tab, search for `Heroku Postgres` and add it to the app
 2. Now, click on `Heroku Postgres`, go to `Settings` tab and view credentials, Copy the **URI**
 3. Connect our system with heroku-postgresql database and creating a table `github_webhook_data` that's similar to [models.py](models.py)
 ```
@@ -56,7 +49,7 @@ headers TEXT,
 body TEXT
 ;
 ```
-The output would be `CREATE TABLE` if there are no issues
+The output would be `CREATE TABLE` if there are no issues <br />
 5. You can view the contents of the table using:
 ```
 \d github_webhook_data
@@ -71,3 +64,7 @@ SELECT * FROM TABLE github_webhook_data
 ```python
 app.config['SQLALCHEMY_DATABASE_URI']='<uri from postgres>'
 ```
+
+# References
+
+[Webhooks](https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/about-webhooks)
