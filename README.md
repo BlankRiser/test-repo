@@ -38,14 +38,15 @@ ngork http 5000
 - Doing any activity in Github would generate a `data.json`
 
 
-## Setting up data base in heroku-postgressql
+## Setting up our database using heroku-postgressql
 
-Connect our system with heroku-postgresql database
+1. Create an app on heroku and in `Resources` tab and search for `Heroku Postgres` and add it to our app
+2. Now, click on `Heroku Postgres`, go to `Settings` tab and view credentials, Copy the **URI**
+3. Connect our system with heroku-postgresql database and creating a table `github_webhook_data` that's similar to [models.py](models.py)
 ```
 psql <DATABASE_URI provided by heroku-postgresql>
 ```
-At first we can see that there's no TABLE in our database `\dt`, so we create a table from the model we made but in postgrsel format
-
+4. At first we can see that there's no TABLE in our database using `\dt`, so we create a table similar to [models.py](models.py)
 ```
 CREATE TABLE github_webhook_data(
 id SERIAL PRIMARY KEY,
@@ -56,16 +57,17 @@ body TEXT
 ;
 ```
 The output would be `CREATE TABLE` if there are no issues
-You can view the contents of the table using:
+5. You can view the contents of the table using:
 ```
 \d github_webhook_data
 ```
-You can also view the data in the TABLE github_webhook_data by creating a dataclip
+You can also view the data in the TABLE github_webhook_data by creating a dataclip in `Heroku Postgres` in our Heroku app
 ```sql
 SELECT * FROM TABLE github_webhook_data
 ```
 
+6. The last step would be to include the URI in [app.py](app.py), You can do so by adding a configuration to flask
 
-## Setting up oauth with Github
-
-https://github.com/settings/applications/new
+```python
+app.config['SQLALCHEMY_DATABASE_URI']=''
+```
