@@ -69,5 +69,5 @@ SELECT * FROM TABLE github_webhook_data
 6. The last step would be to include the URI in [app.py](app.py), You can do so by adding a configuration to flask
 
 ```python
-app.config['SQLALCHEMY_DATABASE_URI']=''
+app.config['SQLALCHEMY_DATABASE_URI']='<uri from postgres>'
 ```
