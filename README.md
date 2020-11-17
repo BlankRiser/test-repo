@@ -17,7 +17,7 @@ pip install flask Flask==1.1.2 Flask_SQLAlchemy==2.4.4 gunicorn==19.9.0 psycopg2
 python3 app.py
 ```
 
-3. Run [ngork](https://ngrok.com/download) on the port flask opens development server, for me it is http://127.0.0.1:5000/](http://127.0.0.1:5000/ ), so port 5000
+3. Run [ngork](https://ngrok.com/download) on the port flask opens development server, for me it is [ttp://127.0.0.1:5000/](http://127.0.0.1:5000/ ), so port 5000
     - You can download ngrok, extract it and add it to your `$PATH` before executing ngrok on your development server.
     ```
     sudo cp ngrok /usr/local/bin
